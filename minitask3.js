@@ -15,6 +15,24 @@ const wait = (str, time) => {
 //     });
 //   });
 // });
+console.log(" --- then-catch ---");
+wait("John", 1500)
+  .then((res) => {
+    console.log(res);
+    return wait("Ed", 1000);
+  })
+  .then((res) => {
+    console.log(res);
+    return wait("Jane", 500);
+  })
+  .then((res) => {
+    console.log(res);
+    console.log(" --- then-catch ---");
+    name();
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 async function name() {
   try {
@@ -28,5 +46,3 @@ async function name() {
     console.error(error);
   }
 }
-
-name();
