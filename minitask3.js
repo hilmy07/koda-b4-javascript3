@@ -45,8 +45,10 @@ async function name() {
     console.log(john);
     const ed = await wait("Ed", 1000);
     console.log(ed);
-    const jane = await wait("Jane", 500);
+    const jane = await wait("jane", 500);
     console.log(jane);
+    const karin = await wait(false, 450);
+    console.log(karin);
   } catch (error) {
     console.error(error);
   }
