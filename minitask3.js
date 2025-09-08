@@ -1,8 +1,12 @@
 const wait = (str, time) => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(str);
-    }, time);
+    if (typeof str !== "string") {
+      return reject("Err: Input must be a string");
+    } else {
+      setTimeout(() => {
+        resolve(str);
+      }, time);
+    }
   });
 };
 
@@ -15,7 +19,8 @@ const wait = (str, time) => {
 //     });
 //   });
 // });
-console.log(" --- then-catch ---");
+
+console.log(" --- then catch ---");
 wait("John", 1500)
   .then((res) => {
     console.log(res);
@@ -27,7 +32,7 @@ wait("John", 1500)
   })
   .then((res) => {
     console.log(res);
-    console.log(" --- then-catch ---");
+    console.log(" --- async await ---");
     name();
   })
   .catch((error) => {
